@@ -3,6 +3,7 @@
     <Slider></Slider>
     <Feature></Feature>
     <Divider></Divider>
+    <Intro></Intro>
   </div>
 </template>
 
@@ -13,12 +14,14 @@
 import Slider from "./Content/Slider/Slider.vue";
 import Feature from "./Content/Feature/Feature.vue";
 import Divider from "./Divider/Divider.vue";
+import Intro from './Content/Feature/Intro.vue';
 
 export default {
   components: {
     Slider,
     Feature,
-    Divider
+    Divider,
+    Intro
   },
   name: "HelloWorld",
 };

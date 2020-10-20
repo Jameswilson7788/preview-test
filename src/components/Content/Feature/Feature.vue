@@ -14,19 +14,19 @@ export default {
     return {
       items: [
         {
-          src: "./image-53-4.png",
+          src: "./assets/image-53-4.png",
           title: "Trusted Wine Delivery Service",
           description:
             "Deliver Wines with Our New Temperature Controlled Truck",
         },
         {
-          src: "./image-54-4.png",
+          src: "./assets/image-54-4.png",
           title: "Incredible Value Premium Wines",
           description:
             "Work with Producers and Negociants to Bring You Best Value Wines",
         },
         {
-          src: "./image-55.png",
+          src: "./assets/image-55.png",
           title: "Free Delivery",
           description:
             "Spend <b>HK$1,800</b> to enjoy free delivery to a single location in Hong Kong Island, Kowloon or New Territories",

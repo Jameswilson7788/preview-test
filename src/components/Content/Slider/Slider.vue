@@ -41,7 +41,7 @@ export default {
 
 .logo-banner {
   position: absolute;
-  top: 25%;
+  top: 15%;
   right: 10%;
   color:#fff;
 }
