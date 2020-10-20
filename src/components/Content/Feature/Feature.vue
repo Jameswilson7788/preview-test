@@ -1,5 +1,5 @@
 <template>
-  <div class="feture">
+  <div class="feature">
     <div class="column" v-for="(item, index) in items" :key="index">
       <img style="width: 200px; height: 200px" :src="item.src" alt="" />
       <h3>{{ item.title }}</h3>
@@ -14,22 +14,22 @@ export default {
     return {
       items: [
         {
-          src: "https://cdn.quasar.dev/img/mountains.jpg",
+          src: "./assets/image-53-4.png",
           title: "Trusted Wine Delivery Service",
           description:
-            "<span>Deliver Wines with Our New Temperature Controlled Truck</span>",
+            "Deliver Wines with Our New Temperature Controlled Truck",
         },
         {
-          src: "https://cdn.quasar.dev/img/mountains.jpg",
-          title: "Trusted Wine Delivery Service",
+          src: "./assets/image-54-4.png",
+          title: "Incredible Value Premium Wines",
           description:
-            "<span>Deliver Wines with Our New Temperature Controlled Truck</span>",
+            "Work with Producers and Negociants to Bring You Best Value Wines",
         },
         {
-          src: "https://cdn.quasar.dev/img/mountains.jpg",
-          title: "Trusted Wine Delisssvery Service",
+          src: "./assets/image-55.png",
+          title: "Free Delivery",
           description:
-            "<span>Deliver Wines with Our New Temperature Controlled Truck</span>",
+            "Spend <b>HK$1,800</b> to enjoy free delivery to a single location in Hong Kong Island, Kowloon or New Territories",
         },
       ],
     };
@@ -38,11 +38,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .feature {
   display: flex;
   justify-content: space-around;
   padding: 3rem 0;
-  flex-direction: column;
+  
   // @media only screen and (max-width: 576px) {
   //   width: 100%;
   // }
@@ -56,18 +57,29 @@ h3 {
 }
 
 .column {
+  width: 33.3333333%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   padding: 0;
-  width: 33.3333333%;
+
   // @media only screen and (max-width: 576px) {
   //   width: 100%;
   // }
 }
 
-.img {
+img {
   width: 150px;
   height: 150px;
 }
+
+p {
+  margin: 1px;
+  width: 150px;
+  text-align: center;
+}
+
+
+
 </style>
