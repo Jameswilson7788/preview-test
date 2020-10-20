@@ -14,19 +14,19 @@ export default {
     return {
       items: [
         {
-          src: "./assets/image-53-4.png",
+          src: "./image-53-4.png",
           title: "Trusted Wine Delivery Service",
           description:
             "Deliver Wines with Our New Temperature Controlled Truck",
         },
         {
-          src: "./assets/image-54-4.png",
+          src: "./image-54-4.png",
           title: "Incredible Value Premium Wines",
           description:
             "Work with Producers and Negociants to Bring You Best Value Wines",
         },
         {
-          src: "./assets/image-55.png",
+          src: "./image-55.png",
           title: "Free Delivery",
           description:
             "Spend <b>HK$1,800</b> to enjoy free delivery to a single location in Hong Kong Island, Kowloon or New Territories",
@@ -38,12 +38,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .feature {
   display: flex;
   justify-content: space-around;
-  padding: 3rem 0;
-  
+  padding: 2rem 0;
+
   // @media only screen and (max-width: 576px) {
   //   width: 100%;
   // }
@@ -70,8 +69,8 @@ h3 {
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 p {
@@ -79,7 +78,5 @@ p {
   width: 150px;
   text-align: center;
 }
-
-
 
 </style>
