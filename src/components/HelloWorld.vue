@@ -4,6 +4,7 @@
     <Feature></Feature>
     <Divider></Divider>
     <Intro></Intro>
+    <Product></Product>
     <Contract></Contract>
     <Footer></Footer>
   </div>
@@ -19,6 +20,8 @@ import Divider from "./Divider/Divider.vue";
 import Intro from "./Content/Feature/Intro.vue";
 import Contract from "./Content/Contract/Contract.vue";
 import Footer from "./Footer/Footer.vue";
+// import Product from './Content/Products/Products.vue';
+import Product from './Content/Products/Real/Product';
 
 export default {
   components: {
@@ -28,6 +31,7 @@ export default {
     Intro,
     Contract,
     Footer,
+    Product,
   },
   name: "HelloWorld",
 };

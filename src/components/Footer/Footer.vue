@@ -10,15 +10,23 @@
       </p>
       <div class="tech">
         <span>@ 2020, Ponti Wine Cellars</span>
-        <ul>
+        <ul class="policy">
           <li><a href="#">Terms of Use</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Cookies Policy</a></li>
         </ul>
       </div>
     </div>
-    <div v-for="(item, index) in items" :key="index" class="right">
-      <img :class="item.class" width="60" height="40" :src="item.icon" alt="" />
+    <div class="right">
+      <div v-for="(item, index) in items" :key="index" >
+        <img
+          :class="item.class"
+          width="60"
+          height="40"
+          :src="item.icon"
+          alt=""
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +43,7 @@ export default {
   data() {
     return {
       items: [
-        { icon: visa, class: "bold" },
+        { icon: visa, class: "" },
         { icon: alipay, class: "bold" },
         { icon: unionpay, class: "bold" },
         { icon: verve, class: "" },
@@ -51,11 +59,13 @@ export default {
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 3rem;
+  padding: 1rem 4rem;
 }
 
 li {
   list-style: none;
+  margin-right: 0.5rem;
+  font-size: 14px;
 }
 
 a {
@@ -63,10 +73,12 @@ a {
   color: black;
 }
 
+p {
+  font-size: 12px;
+  margin: 0.1rem 0;
+}
+
 .left {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 3rem;
 }
 
 .tech {
@@ -76,7 +88,7 @@ a {
 }
 
 span {
-  margin-right: 2rem;
+  padding: 1rem;
 }
 
 img {
@@ -90,5 +102,20 @@ img {
 .right {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.policy {
+  display: flex;
+  align-items: center;
+}
+
+li:after {
+  content: "    |";
+}
+
+span {
+  margin-right: 2rem;
+  font-size: 10px;
 }
 </style>
