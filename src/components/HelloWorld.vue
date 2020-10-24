@@ -4,12 +4,7 @@
     <Feature></Feature>
     <Divider></Divider>
     <Intro></Intro>
-    <!-- <div class="slider"> -->
-    <!-- <Product></Product> -->
-    <Score item="{scores:{wa:'2',}}"></Score>
-    <!-- <Product></Product> -->
-    <!-- <Product></Product> -->
-    <!-- </div> -->
+    <Products></Products>
     <Contract></Contract>
     <Footer></Footer>
   </div>
@@ -24,8 +19,8 @@ import Intro from "./Content/Feature/Intro.vue";
 import Contract from "./Content/Contract/Contract.vue";
 import Footer from "./Footer/Footer.vue";
 // import Product from './Content/Products/Products.vue';
-// import Product from "./Content/Products/Real/Product";
-import Score from  './Content/Products/Score/Score.vue';
+import Products from "./Content/Products/Real/Products.vue";
+// import Score from  './Content/Products/Score/Score.vue';
 
 export default {
   components: {
@@ -35,8 +30,8 @@ export default {
     Intro,
     Contract,
     Footer,
-    // Product,
-    Score
+    Products,
+    // Score
   },
   name: "HelloWorld",
 };

@@ -2,7 +2,7 @@
   <main>
     <div class="score">
       <div>
-        <span>AM</span><span></span>
+        <span>AM</span><span>{{ item.scores.ws }}</span>
       </div>
       <div>
         <span>WS</span><span>{{ item.scores.ws }}</span>
@@ -20,7 +20,11 @@ export default {
   data() {
     return {
         item: {
-            wa: '2222'
+            score: {
+                wa:'2',
+                am:'2',
+                ws:'5'
+            }
         }
     };
   },

@@ -1,39 +1,48 @@
 <template>
   <div>
-    
-    <main>
-      <div class="name-field">
-        {{ item.id }} - {{ item.name }} <br />
-        {{ item.vintage }}
-      </div>
-      <div class="score">
-        <div>
-          <span>AM</span><span>{{ item.scores.am }}</span>
-        </div>
-        <div>
-          <span>WS</span><span>{{ item.scores.ws }}</span>
-        </div>
-        <div>
-          <span>WA</span><span>{{ item.scores.wa }}</span>
-        </div>
-      </div>
+    <div class="wrap" v-for="(item, index) in items" :key="index">
+      <div class="slide">
+        <div class="body">
+          <!-- <img :src="item.thumbnail" alt="" /> -->
+          <div class="mask"></div>
+          <div class="block">
+            <div class="name-field">
+              {{ item.id }} - {{ item.name }} <br />
+              {{ item.vintage }}
+            </div>
+            <div class="score">
+              <div>
+                <span>AM</span><span>{{ item.scores.am }}</span>
+              </div>
+              <div>
+                <span>WS</span><span>{{ item.scores.ws }}</span>
+              </div>
+              <div>
+                <span>WA</span><span>{{ item.scores.wa }}</span>
+              </div>
+            </div>
 
-      <div v-show="item.quantity == 0" class="out-of-stock">OUT OF STOCK</div>
-      <div v-show="price_onsale > 0" class="on-sale">
-        HK$ {{ item.onsale.toFixed(2) }}
+            <div v-show="item.quantity == 0" class="out-of-stock">
+              OUT OF STOCK
+            </div>
+            <div v-show="price_onsale > 0" class="on-sale">
+              HK$ {{ item.onSalePrice.toFixed(2) }}
+            </div>
+            <div class="price">HK$ {{ item.price.toFixed(2) }}</div>
+          </div>
+          <div class="footer">
+            <CartPanel></CartPanel>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
       </div>
-      <div class="price">HK$ {{ item.price.toFixed(2) }}</div>
-
-      <div class="footer">
-        <CartPanel></CartPanel>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-    </main>
+    </div>
   </div>
 </template>
 
 <script>
 import CartPanel from "./CartPanel.vue";
+import items from "../items.js";
 
 export default {
   components: {
@@ -41,19 +50,7 @@ export default {
   },
   data() {
     return {
-      item: {
-        id: 1,
-        name: "weigo",
-        vintage: 1992,
-        scores: {
-          am: "90-95",
-          ws: "93",
-          wa: "91",
-        },
-        onsale: 192,
-        quantity: 0,
-        price: 200,
-      },
+      items,
     };
   },
 };
@@ -165,7 +162,32 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:.25rem;border: 1px solid  rgb(119, 82, 82);
+  padding: 0.25rem;
+  border: 1px solid rgb(119, 82, 82);
   border-radius: 100%;
 }
+
+.img {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  height: 270px;
+  z-index: -1;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+.body:hover .detail {
+  opacity: 1;
+}
+
+
 </style>
