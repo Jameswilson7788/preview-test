@@ -54,7 +54,9 @@
               </div>
             </div>
           </div>
-          <div class="cart"></div>
+          <div class="cart">
+            
+          </div>
         </div>
       </div>
     </div>
@@ -65,6 +67,7 @@
 import items from "./items.js";
 
 export default {
+  props:['items'],
   data() {
     return {
       items,

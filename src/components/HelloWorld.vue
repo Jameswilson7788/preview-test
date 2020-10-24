@@ -4,14 +4,17 @@
     <Feature></Feature>
     <Divider></Divider>
     <Intro></Intro>
-    <Product></Product>
+    <!-- <div class="slider"> -->
+    <!-- <Product></Product> -->
+    <Score item="{scores:{wa:'2',}}"></Score>
+    <!-- <Product></Product> -->
+    <!-- <Product></Product> -->
+    <!-- </div> -->
     <Contract></Contract>
     <Footer></Footer>
   </div>
 </template>
 
-<style>
-</style>
 
 <script>
 import Slider from "./Content/Slider/Slider.vue";
@@ -21,7 +24,8 @@ import Intro from "./Content/Feature/Intro.vue";
 import Contract from "./Content/Contract/Contract.vue";
 import Footer from "./Footer/Footer.vue";
 // import Product from './Content/Products/Products.vue';
-import Product from './Content/Products/Real/Product';
+// import Product from "./Content/Products/Real/Product";
+import Score from  './Content/Products/Score/Score.vue';
 
 export default {
   components: {
@@ -31,8 +35,14 @@ export default {
     Intro,
     Contract,
     Footer,
-    Product,
+    // Product,
+    Score
   },
   name: "HelloWorld",
 };
 </script>
+
+
+
+<style>
+</style>
