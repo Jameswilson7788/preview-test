@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="cart">
-
+                        
                         <button type="button" >Add to cart</button>
                     </div>
 
