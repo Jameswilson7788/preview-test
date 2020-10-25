@@ -15,15 +15,18 @@
 
 <script>
 import Slick from "vue-slick";
+// import Wine from "./Wine";
 
 export default {
-  components: { Slick },
+  components: { Slick
+  // , Wine 
+  },
   data() {
     return {
-      title: "Top",
+      title: "Top Pick's",
       slickOptions: {
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         infinite: true,
         arrows: true,
         dots: false,
@@ -35,7 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* Slider */
 .slick-slider {
   position: relative;
 

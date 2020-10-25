@@ -39,7 +39,7 @@ export default [
     },
     {
         id: 3,
-        name: "Hello",
+        name: "Scotchmans Hill Cornellius Syrah",
         vintage: "ss",
         onsale: true,
         onSalePrice: 0,
