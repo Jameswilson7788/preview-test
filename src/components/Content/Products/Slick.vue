@@ -1,36 +1,66 @@
 <template>
   <div>
-    <main>
+    <main style="height: 740px">
       <h1>{{ title }}</h1>
-      <Slick ref="slick" :options="slickOptions">
-        <img src="http://placehold.it/300x300" alt="" />
-        <img src="http://placehold.it/300x300" alt="" />
-        <img src="http://placehold.it/300x300" alt="" />
-        <img src="http://placehold.it/300x300" alt="" />
-        <img src="http://placehold.it/300x300" alt="" />
-      </Slick>
+      <VueSlickCarousel v-bind="settings">
+        <div v-for="(item, index) in items" :key="index">
+          <Wine :item="item"></Wine>
+        </div>
+      </VueSlickCarousel>
     </main>
   </div>
 </template>
 
 <script>
-import Slick from "vue-slick";
-// import Wine from "./Wine";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import Wine from "./Wine";
+import items from "./items.js";
 
 export default {
-  components: { Slick
-  // , Wine 
+  components: {
+    VueSlickCarousel,
+    Wine,
   },
   data() {
     return {
       title: "Top Pick's",
-      slickOptions: {
+      items,
+      settings: {
+        dots: false,
+        infinite: true,
+        initialSlide: 2,
+        speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        infinite: true,
-        arrows: true,
-        dots: false,
-        // Any other options that can be got from plugin documentation
+        swipeToSlide: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
       },
     };
   },
@@ -38,105 +68,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slick-slider {
-  position: relative;
-
-  display: block;
-  box-sizing: border-box;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list {
-  position: relative;
-
-  display: block;
-  overflow: hidden;
-
-  margin: 0;
-  padding: 0;
-}
-.slick-list:focus {
-  outline: none;
-}
-.slick-list.dragging {
-  cursor: pointer;
-  cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.slick-track {
-  position: relative;
-  top: 0;
-  left: 0;
-
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.slick-track:before,
-.slick-track:after {
-  display: table;
-
-  content: "";
-}
-.slick-track:after {
-  clear: both;
-}
-.slick-loading .slick-track {
-  visibility: hidden;
-}
-
-.slick-slide {
-  display: none;
-  float: left;
-
-  height: 100%;
-  min-height: 1px;
-}
-[dir="rtl"] .slick-slide {
-  float: right;
-}
-.slick-slide img {
-  display: block;
-}
-.slick-slide.slick-loading img {
-  display: none;
-}
-.slick-slide.dragging img {
-  pointer-events: none;
-}
-.slick-initialized .slick-slide {
-  display: block;
-}
-.slick-loading .slick-slide {
-  visibility: hidden;
-}
-.slick-vertical .slick-slide {
-  display: block;
-
-  height: auto;
-
-  border: 1px solid transparent;
-}
-.slick-arrow.slick-hidden {
-  display: none;
+main {
+  max-width: 1600px;
 }
 </style>

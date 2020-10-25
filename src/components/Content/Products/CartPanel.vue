@@ -6,7 +6,11 @@
       @click="() => this.decrement()"
     ></button>
     <input type="text" v-model="value" />
-    <button data-text="" type="button" @click="() => this.increment()"></button>
+    <button
+      data-text="+"
+      type="button"
+      @click="() => this.increment()"
+    ></button>
   </div>
 </template>
 
@@ -35,7 +39,7 @@ export default {
   > input {
     padding: 0 20px;
     width: 75px;
-    height: 25px;
+    height: 24px;
     text-align: center;
     border: 0;
     border-radius: 0;
@@ -43,7 +47,7 @@ export default {
   }
   > button {
     position: absolute;
-    top: 2px;
+    top: 1px;
     width: 20px;
     height: 22px;
     color: white;
@@ -57,14 +61,14 @@ export default {
     &::before {
       content: attr(data-text);
       position: absolute;
-      top: 3px;
+      top: 0;
       right: 0;
       left: 0;
     }
     &[data-text="-"] {
       left: 1px;
     }
-    &[data-text=""] {
+    &[data-text="+"] {
       right: 1px;
     }
   }
