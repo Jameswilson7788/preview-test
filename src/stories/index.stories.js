@@ -3,8 +3,6 @@ import { linkTo } from '@storybook/addon-links'
 
 import MyButton from '../components/MyButton.vue'
 
-import Score from '../components/Content/Products/Score/Score.vue'
-import Header from '../components/Header/Header.vue'
 
 export default {
   component: MyButton,
@@ -28,12 +26,4 @@ export const withSomeEmoji = () => ({
   template: '<my-button>😀 😎 👍 💯</my-button>'
 })
 
-export const withScore = () => ({
-  components: Score,
-  template: '<Score></Score>'
-})
 
-export const withHeader = () => ({
-  components: Header,
-  template: '<Header></Header>'
-})

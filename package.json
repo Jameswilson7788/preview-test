@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "@vue/cli": "^4.5.8",
     "core-js": "^3.6.5",
+    "global": "^4.4.0",
+    "jquery": "^3.5.1",
     "payment-icons": "^1.2.1",
     "quasar": "^1.0.0",
     "vue": "^2.6.11",
-    "vue-slick": "^1.1.15"
+    "vue-slick": "^1.1.15",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": ">=5.3.0",

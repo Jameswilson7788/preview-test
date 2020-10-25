@@ -54,11 +54,11 @@ a {
   width: 150px;
   height: 45px;
   text-align: center;
-  
+
   background: gray;
   color: white;
   opacity: 0.9;
-  font-size:18px;
+  font-size: 18px;
 }
 
 a:hover {

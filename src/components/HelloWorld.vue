@@ -4,7 +4,7 @@
     <Feature></Feature>
     <Divider></Divider>
     <Intro></Intro>
-    <Products></Products>
+    <Slick></Slick>
     <Contract></Contract>
     <Footer></Footer>
   </div>
@@ -18,9 +18,8 @@ import Divider from "./Divider/Divider.vue";
 import Intro from "./Content/Feature/Intro.vue";
 import Contract from "./Content/Contract/Contract.vue";
 import Footer from "./Footer/Footer.vue";
-// import Product from './Content/Products/Products.vue';
-import Products from "./Content/Products/Real/Products.vue";
-// import Score from  './Content/Products/Score/Score.vue';
+import Slick from './Content/Products/Slick.vue'
+
 
 export default {
   components: {
@@ -30,8 +29,7 @@ export default {
     Intro,
     Contract,
     Footer,
-    Products,
-    // Score
+    Slick
   },
   name: "HelloWorld",
 };
