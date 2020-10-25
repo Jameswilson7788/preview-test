@@ -2,7 +2,7 @@
   <div class="wine">
     <div class="product">
       <div class="body">
-        <div class="heart"></div>
+        <Heart class="heart"></Heart>
         <div class="sale"></div>
         <img class="thumbnail" alt="" />
 
@@ -53,8 +53,10 @@
 
 <script>
 import CartPanel from "./CartPanel.vue";
+import Heart from './Heart.vue';
+
 export default {
-  components: { CartPanel },
+  components: { CartPanel,Heart },
   props: ["item"],
 };
 </script>
@@ -231,5 +233,17 @@ button:disabled {
   content: "SALE";
   font-size: 1.2rem;
   color: white;
+}
+
+.heart {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .25rem;
+  border: 1px solid rgb(181, 153, 131);
+  border-radius: 100%;
 }
 </style>
