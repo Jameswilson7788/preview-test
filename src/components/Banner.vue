@@ -1,5 +1,5 @@
 <template>
-  <div class="main"  v-show="isShow">
+  <div class="main" @click="toggle"  v-show="isShow">
     {{ text }}
   </div>
 </template>
@@ -29,8 +29,8 @@ export default {
   width: 100%;
   text-align: center;
   color: white;
-  background-color: darkgray;
-  opacity: 0.9;
+  background-color: rgb(58, 58, 58);
+  opacity: 1;
   cursor: pointer;
   z-index: 99;
   &.visited {

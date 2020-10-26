@@ -19,7 +19,7 @@
 
     <div class="nav-right">
       <div class="member">
-        <a href="#">Login in</a>
+        <a href="#">Login in |</a>
         <a href="#">Register</a>
       </div>
       <div className="tool-bar">
@@ -57,12 +57,8 @@
 </template>
 
 <script>
-
-
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
       logo: window.he,
@@ -104,75 +100,93 @@ export default {
   width: 100%;
   height: 120px;
   color: white;
-  background: darkgray;
-  opacity: 0.95;
+  background-color: darkgray;
+  opacity: 0.9;
   z-index: 9;
-}
-
-.main.minify {
-  height: 80px;
-  > img {
-    position: absolute;
-    top: 1.2rem;
-    left: 2.5rem;
-    height: 50px;
-  }
-}
-
-.main > nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
-  width: inherit;
-}
-.main a {
-  padding: 0 0.85rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: white;
-  &:hover,
-  &:focus {
-    -webkit-text-stroke: 1px white;
-  }
-}
-
-.nav-right {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
-  display: flex;
-  align-items: center;
-  @media only screen and (max-width: 992px) {
-    top: 1rem;
-    right: 1.5rem;
-    .login-bar {
-      display: none;
+  &.minify {
+    height: 80px;
+    > img {
+      position: absolute;
+      top: 1.2rem;
+      left: 2.5rem;
+      height: 50px;
     }
-    .tool-bar a[data-amount]::before {
+  }
+  > nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    width: inherit;
+    a {
+      padding: 0 0.85rem;
+      text-decoration: none;
+      text-transform: uppercase;
       color: white;
+      &:hover,
+      &:focus {
+        -webkit-text-stroke: 1px white;
+      }
     }
-    .tool-bar .tool-search {
+    .mask {
       display: none;
     }
-    .tool-bar .tool-cart {
-      color: black;
-    }
   }
-}
-
-.nav-right .minify {
-  top: 1.25rem;
-}
-
-.member {
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    &:not(:last-child)::after {
-      content: "|";
-      padding: 0 0.5rem;
+  @media only screen and (max-width: 992px) {
+    flex-direction: row;
+    height: 70px;
+    background-color: lightgray;
+    > img {
+      height: 60px;
+    }
+    > nav {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      margin-top: 0;
+      width: 100vw;
+      height: 100vh;
+      .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      > div {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        overflow-y: scroll;
+        margin-top: 0;
+        padding: 1.5rem;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background-color: #fff;
+        box-shadow: 0 2px 10px black;
+        &::-webkit-scrollbar {
+          width: 6px;
+          background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: gray;
+        }
+      }
+      &.toggled {
+        left: 0;
+      }
+      a {
+        display: block;
+        padding: 0.5rem 0;
+        color: black;
+        &:hover,
+        &:focus {
+          -webkit-text-stroke: 0;
+        }
+      }
     }
   }
 }
@@ -196,38 +210,105 @@ export default {
   }
 }
 
-.tool-bar {
-  margin-left: 1rem;
-  a {
-    position: relative;
-    display: inline-block;
-    margin: 0 0.5rem;
-    text-decoration: none;
-    color: white;
-    svg {
-      font-size: 2.25rem;
+.nav-right {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  &.minify {
+    top: 1.25rem;
+  }
+  .login-bar {
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      &:not(:last-child)::after {
+        content: "|";
+        padding: 0 0.5rem;
+      }
     }
-    &[data-amount]::before {
-      content: attr(data-amount);
-      position: absolute;
-      top: -2px;
-      right: -12px;
-      width: 25px;
-      height: 25px;
-      font-size: 10px;
-      text-align: center;
-      line-height: 24px;
-      background: red;
-      border-radius: 100%;
+  }
+  .tool-bar {
+    margin-left: 1rem;
+    a {
+      position: relative;
+      display: inline-block;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: white;
+      svg {
+        font-size: 2.25rem;
+      }
+      &[data-amount]::before {
+        content: attr(data-amount);
+        position: absolute;
+        top: -2px;
+        right: -12px;
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+        text-align: center;
+        line-height: 24px;
+        background: red;
+        border-radius: 100%;
+      }
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    top: 1rem;
+    right: 1.5rem;
+    .login-bar {
+      display: none;
+    }
+    .tool-bar a[data-amount]::before {
+      color: white;
+    }
+    .tool-bar .tool-search {
+      display: none;
+    }
+    .tool-bar .tool-cart {
+      color: black;
     }
   }
 }
-
-Cart {
-  font-size: 2.25rem;
+.nav-toggler {
+  position: absolute;
+  top: 0.85rem;
+  left: 1.5rem;
+  display: block;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #000;
+  border-radius: 100%;
+  outline: none;
+  cursor: pointer;
+  &:focus ~ nav {
+    display: block;
+  }
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
 }
 
-Search {
+.nav-closed {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   font-size: 2.25rem;
+  color: black;
+  cursor: pointer;
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.line {
+  width: 100%;
+  border: 1.5px solid lightgray;
 }
 </style>

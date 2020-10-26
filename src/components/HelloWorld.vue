@@ -36,7 +36,7 @@ export default {
     Banner
   },
   name: "HelloWorld",
-  date(){
+  data(){
     return {
       message: 'Free shipping for over $1,000'
     }
