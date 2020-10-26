@@ -71,7 +71,7 @@ export default {
       height: 60px;
       font-weight: bold;
       color: white;
-      background-color:brown;
+      background-color:rgba(72, 43, 19, 0.8);
       p {
         margin: 0;
         width: 100%;
