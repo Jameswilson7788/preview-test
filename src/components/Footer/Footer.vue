@@ -18,15 +18,15 @@
       </div>
     </div>
     <div class="right">
-      <div v-for="(item, index) in items" :key="index" >
-        <img
-          :class="item.class"
-          width="60"
-          height="40"
-          :src="item.icon"
-          alt=""
-        />
-      </div>
+      <img
+        v-for="(item, index) in items"
+        :key="index"
+        :class="item.class"
+        width="60"
+        height="40"
+        :src="item.icon"
+        alt=""
+      />
     </div>
   </div>
 </template>
@@ -60,6 +60,13 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 1rem 4rem;
+   @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
 }
 
 li {
@@ -75,16 +82,37 @@ a {
 
 p {
   font-size: 12px;
-  margin: 0.1rem 0;
+  margin: 0.15rem 0;
 }
 
 .left {
+  font-size: 12px;
+  @media only screen and (max-width: 1200px) {
+    > div {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    margin-bottom: 1rem;
+    > div {
+      display: none;
+    }
+  }
 }
 
 .tech {
   display: flex;
   align-items: flex-end;
   margin-top: 1rem;
+  a {
+    text-decoration: none;
+    color: black;
+    &:not(:last-child)::after {
+      content: "|";
+      padding: 0 0.5rem;
+    }
+  }
 }
 
 span {
@@ -103,6 +131,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 576px) {
+    img {
+      width: 40px;
+      height: 28px;
+    }
+  }
 }
 
 .policy {
@@ -111,7 +145,7 @@ img {
 }
 
 li:after {
-  content: "    |";
+  content: "   |";
 }
 
 span {
