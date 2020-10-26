@@ -3,8 +3,8 @@
     <div class="product">
       <div class="body">
         <Heart class="heart"></Heart>
-        <div class="sale"></div>
-        <img class="thumbnail" alt="" />
+        <div v-show="item.onSalePrice > 0" class="sale"></div>
+        <img class="thumbnail" alt="" :src="item.thumbnail" />
 
         <div class="detail">
           <div>
@@ -21,31 +21,32 @@
           </div>
         </div>
 
-        <div class="score">
-          <div>
-            <span>AM</span><span>{{ item.scores.am }}</span>
-          </div>
-          <div>
-            <span>WS</span><span>{{ item.scores.ws }}</span>
-          </div>
-          <div>
-            <span>WA</span><span>{{ item.scores.wa }}</span>
-          </div>
-        </div>
-
         <div class="block">
           <div class="block-name">{{ item.name }}</div>
-          <div class="block-score">{{ item.score }}</div>
-          <div v-show="item.quantity <= 0" class="block-stock">
+          <div class="block-score">
+            <div>
+              <span>AM</span><span>{{ item.scores.am }}</span>
+            </div>
+            <div>
+              <span>WS</span><span>{{ item.scores.ws }}</span>
+            </div>
+            <div>
+              <span>WA</span><span>{{ item.scores.wa }}</span>
+            </div>
+          </div>
+          <div v-show="item.quantity < 1" class="block-stock">
             OUT OF STOCK
           </div>
-          <div class="block-on-sale">{{ item.onSalePrice }}</div>
-          <div class="block-price">{{ item.price }}</div>
+          <div v-show="item.onSalePrice > 0" class="block-on-sale">
+            HK${{ item.onSalePrice.toFixed(2) }}
+          </div>
+          <div v-if="item.onSalePrice <= 0" class="block-price">HK${{ item.price.toFixed(2) }}</div>
+          <div v-else class="block-price through">HK${{ item.price.toFixed(2) }}</div>
         </div>
       </div>
       <div class="footer">
-        <CartPanel></CartPanel>
-        <button type="button" :disabled="quantity == 0">Add to cart</button>
+        <CartPanel :quantity="item.quantity"></CartPanel>
+        <button type="button" :disabled="item.quantity <= 0">Add to cart</button>
       </div>
     </div>
   </div>
@@ -53,10 +54,10 @@
 
 <script>
 import CartPanel from "./CartPanel.vue";
-import Heart from './Heart.vue';
+import Heart from "./Heart.vue";
 
 export default {
-  components: { CartPanel,Heart },
+  components: { CartPanel, Heart },
   props: ["item"],
 };
 </script>
@@ -65,10 +66,10 @@ export default {
 .wine {
   height: 490px;
   outline: none;
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 576px) {
     height: 600px;
   }
-  @media only screen and (max-width: 540px) {
+  @media only screen and (max-width: 320px) {
     height: 650px;
   }
 }
@@ -171,8 +172,8 @@ b {
   width: 100%;
   height: 80px;
   background-color: rgb(181, 153, 131);
-  @media only screen and (max-width: 720px) {
-    width: 90%;
+  @media only screen and (max-width: 576px) {
+    width: 100%;
     .body .detail {
       top: 55%;
       left: 15px;
@@ -242,8 +243,91 @@ button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .25rem;
+  padding: 0.25rem;
   border: 1px solid rgb(181, 153, 131);
   border-radius: 100%;
+}
+
+.block-score {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.block-score > div {
+  margin-right: 0.25rem;
+  width: 46px;
+  text-align: center;
+}
+.block-score > div > span {
+  display: block;
+  padding: 0.25rem 0;
+  width: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid rgb(119, 82, 82);
+}
+.block-score > div > span:first-child {
+  color: white;
+  background: rgb(119, 82, 82);
+  text-align: center;
+}
+.block-score > div > span:last-child {
+  color: rgb(119, 82, 82);
+  text-align: center;
+}
+.block-price {
+  position: absolute;
+  bottom: 3%;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: rgb(119, 82, 82);
+}
+.block-on-sale {
+   position: absolute;
+  bottom: 9%;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: red;
+}
+
+.through {
+    font-weight: normal;
+    text-decoration-line: line-through;
+  }
+
+.block-stock {
+  position: absolute;
+  bottom: 18%;
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: red;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  width: 72%;
+  height: inherit;
+}
+.block-name {
+  height: 55%;
+  font-size: 1.3rem;
+  font-family: "Times New Roman", Times, serif;
+  @media only screen and (max-width: 576px) {
+    height: 40%;
+  }
+}
+
+.thumbnail {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  height: 270px;
+  z-index: -1;
 }
 </style>

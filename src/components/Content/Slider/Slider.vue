@@ -1,15 +1,15 @@
 <template>
-  <div class="q-pa-md slider" style="max-width: 100%">
+  <div class="col-md-12 col-xs-12 slider" style="max-width: 100%">
     <q-carousel animated v-model="slide" arrows infinite style="height: 550px">
       <q-carousel-slide :name="1" img-src="./assets/slider-1.png" />
       <q-carousel-slide :name="2" img-src="./assets/slider-2.png" />
       <q-carousel-slide :name="3" img-src="./assets/slider-3.png" />
     </q-carousel>
-    <div class="logo-banner">
+    <!-- <div class="logo-banner">
       <h1>Trusted wine delivery</h1>
       <h3>with temperature controlled wine delivery truck</h3>
       <a href="#">SEE MORE</a>
-    </div>
+    </div> -->
   </div>
 </template>
 

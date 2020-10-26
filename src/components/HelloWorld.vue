@@ -4,7 +4,8 @@
     <Feature></Feature>
     <Divider></Divider>
     <Intro></Intro>
-    <Slick></Slick>
+    <Slick title="Ponti’s top picks"></Slick>
+    <Slick title="New arrivals..."></Slick>
     <Contract></Contract>
     <Footer></Footer>
   </div>

@@ -1,16 +1,7 @@
 <template>
   <div>
     <header>
-      <!-- <img class="logo" src="" alt=""> -->
-      <Nav>
-        <!-- <ul class="nav__links">
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-        </ul> -->
-      </Nav>
+      <Nav></Nav>
     </header>
   </div>
 </template>

@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  props: ['quantity'],
   data() {
     return {
       value: 0,
@@ -23,7 +24,8 @@ export default {
   },
   methods: {
     increment() {
-      return this.value;
+      if(this.value == this.quantity) return;
+      return this.value++;
     },
     decrement() {
       if (this.value <= 0) return;

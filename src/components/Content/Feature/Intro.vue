@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="intro">
-      <div v-for="(item, index) in items" :key="index">
-        <div class="column" :style="{ 'background-image': item.background }">
-          <span
-            >{{ item.title }}
-            <p>{{ item.description }}</p></span
-          >
-        </div>
-      </div>
+  <div class="main">
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      :style="{ 'background-image': item.background }"
+    >
+      <span
+        >{{ item.title }}
+        <p>{{ item.description }}</p></span
+      >
     </div>
   </div>
 </template>
@@ -45,43 +45,69 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.intro {
-  padding: 48px;
+.main {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Microsoft JhengHei", "Segoe UI", Helvetica, Arial, Helvetica, sans-serif;
-}
-
-.column {
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid black;
-  display: flex;
-  align-items: flex-end;
-  margin: 15px;
-  width: 300px;
-  height: 300px;
-  text-align: center;
-}
-
-span {
-  padding: 5px 10px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background-color: #6f4e37;
-  opacity: .9;
-  font-weight: bold;
-  color: white;
-}
-
-p {
-  margin: 0;
-  width: 100%;
-  font-weight: normal;
+  padding: 3rem 0;
+  > div {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0.75rem;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid black;
+    opacity: 0.8;
+    > span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 5px 10px;
+      width: 100%;
+      height: 60px;
+      font-weight: bold;
+      color: white;
+      background-color:brown;
+      p {
+        margin: 0;
+        width: 100%;
+        font-weight: normal;
+      }
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    > div {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    width: 100%;
+    > div {
+      width: 85%;
+      height: 250px;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      > span {
+        height: 80px;
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    > div {
+      height: 200px;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    > div {
+      height: 150px;
+    }
+  }
 }
 </style>

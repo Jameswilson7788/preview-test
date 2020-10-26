@@ -1,7 +1,7 @@
 <template>
-  <div class="feature">
-    <div class="column" v-for="(item, index) in items" :key="index">
-      <img style="width: 200px; height: 200px" :src="item.src" alt="" />
+  <div class="main">
+    <div v-for="(item, index) in items" :key="index">
+      <img :src="item.src" alt="" />
       <h3>{{ item.title }}</h3>
       <p v-html="item.description"></p>
     </div>
@@ -38,45 +38,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.feature {
+.main {
   display: flex;
   justify-content: space-around;
-  padding: 2rem 0;
-
-  // @media only screen and (max-width: 576px) {
-  //   width: 100%;
-  // }
+  padding: 3rem 0;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    width: calc(100% / 3);
+    > h3 {
+      margin: 0.5rem 0;
+      padding: 0;
+      text-align: center;
+      color: black;
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      line-height: 2rem;
+    }
+    > p {
+      margin: 0;
+      max-width: 280px;
+      text-align: center;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    > div > img {
+      width: 100%;
+    }
+  }
 }
-
-h3 {
-  font-size: 20px;
-  text-align: center;
-  margin: 0.5rem 0;
-  color: black;
-}
-
-.column {
-  width: 33.3333333%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0;
-
-  // @media only screen and (max-width: 576px) {
-  //   width: 100%;
-  // }
-}
-
-img {
-  width: 100px;
-  height: 100px;
-}
-
-p {
-  margin: 1px;
-  width: 150px;
-  text-align: center;
-}
-
 </style>
