@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Banner :text="message"></Banner>
     <Slider></Slider>
     <Feature></Feature>
     <Divider></Divider>
@@ -20,6 +21,7 @@ import Intro from "./Content/Feature/Intro.vue";
 import Contract from "./Content/Contract/Contract.vue";
 import Footer from "./Footer/Footer.vue";
 import Slick from './Content/Products/Slick.vue'
+import Banner from './Banner.vue'
 
 
 export default {
@@ -30,9 +32,15 @@ export default {
     Intro,
     Contract,
     Footer,
-    Slick
+    Slick,
+    Banner
   },
   name: "HelloWorld",
+  date(){
+    return {
+      message: 'Free shipping for over $1,000'
+    }
+  }
 };
 </script>
 

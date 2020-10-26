@@ -25,7 +25,7 @@ export default [
         onSalePrice: 0,
         price: 200.25,
         quantity: 1,
-        thumbnail: "./assets/W-SA-013-PT-205.JPG",
+        thumbnail: "./assets/W-SW-003-QT-213.jpg",
         scores: {
             am: "90-92",
             ws: "93",
@@ -38,13 +38,13 @@ export default [
     },
     {
         id: 3,
-        name: "Hello",
-        vintage: "ss",
+        name: "Scotchmans Hill Cornellius Syrah",
+        vintage: "2008",
         onsale: true,
         onSalePrice: 200.25,
         price: 300,
         quantity: 0,
-        thumbnail: "./assets/W-SA-013-PT-205.JPG",
+        thumbnail: "./assets/W-SW-003-QT-213.jpg",
         scores: {
             am: "90-92",
             ws: "93",
@@ -58,7 +58,7 @@ export default [
     {
         id: 4,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "ss",
+        vintage: "1988",
         onsale: true,
         onSalePrice: 0,
         price: 400,
@@ -95,7 +95,7 @@ export default [
     },{
         id: 6,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "2016",
+        vintage: "1998",
         onsale: true,
         onSalePrice: 0,
         price: 200.25,
@@ -114,7 +114,7 @@ export default [
     {
         id: 7,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "ss",
+        vintage: "2005",
         onsale: true,
         onSalePrice: 200.25,
         price: 300,
@@ -133,7 +133,7 @@ export default [
     {
         id: 8,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "ss",
+        vintage: "2005",
         onsale: true,
         onSalePrice: 0,
         price: 400,
@@ -189,7 +189,7 @@ export default [
     {
         id: 11,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "ss",
+        vintage: "2017",
         onsale: true,
         onSalePrice: 200.25,
         price: 300,
@@ -208,7 +208,7 @@ export default [
     {
         id: 12,
         name: "Scotchmans Hill Cornellius Syrah",
-        vintage: "ss",
+        vintage: "2018",
         onsale: true,
         onSalePrice: 0,
         price: 400,
@@ -219,7 +219,7 @@ export default [
             ws: "93",
             wa: "91",
         },
-        country: "Taiwan",
+        country: "Firence",
         region: "Weigo",
         capacity: 1,
         unit: "L",

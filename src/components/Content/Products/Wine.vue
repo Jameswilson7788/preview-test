@@ -34,19 +34,23 @@
               <span>WA</span><span>{{ item.scores.wa }}</span>
             </div>
           </div>
-          <div v-show="item.quantity < 1" class="block-stock">
-            OUT OF STOCK
-          </div>
+          <div v-show="item.quantity < 1" class="block-stock">OUT OF STOCK</div>
           <div v-show="item.onSalePrice > 0" class="block-on-sale">
             HK${{ item.onSalePrice.toFixed(2) }}
           </div>
-          <div v-if="item.onSalePrice <= 0" class="block-price">HK${{ item.price.toFixed(2) }}</div>
-          <div v-else class="block-price through">HK${{ item.price.toFixed(2) }}</div>
+          <div v-if="item.onSalePrice <= 0" class="block-price">
+            HK${{ item.price.toFixed(2) }}
+          </div>
+          <div v-else class="block-price through">
+            HK${{ item.price.toFixed(2) }}
+          </div>
         </div>
       </div>
       <div class="footer">
         <CartPanel :quantity="item.quantity"></CartPanel>
-        <button type="button" :disabled="item.quantity <= 0">Add to cart</button>
+        <button type="button" :disabled="item.quantity <= 0">
+          Add to cart
+        </button>
       </div>
     </div>
   </div>
@@ -82,6 +86,32 @@ export default {
   height: 95%;
   outline: none;
   box-shadow: 0 2px 5px 2px gray;
+
+ @media only screen and (max-width: 576px) {
+    width: 90%;
+    .body .detail {
+      top: 55%;
+      left: 15px;
+      justify-content: flex-start;
+      height: auto;
+      color: black;
+      background-color: transparent;
+      opacity: 1;
+      &::before,
+      &::after {
+        display: none;
+      }
+      span {
+        width: 26%;
+        text-align: left;
+      }
+      b {
+        font-weight: normal;
+      }
+    }
+  }
+
+
 }
 .product {
   box-shadow: 0 2px 5px gray;
