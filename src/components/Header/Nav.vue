@@ -1,6 +1,6 @@
 
 <template>
-  <nav class="main">
+  <nav  class="main">
     <div class="nav-left">
       <span><b>TEL</b>(852) 2739 7678</span>
       <span><b>EMAIL</b>enquiries@pontiwinecellars.com</span>
@@ -8,22 +8,34 @@
 
     <div class="nav-toggler"></div>
 
-    <img :src="logo" alt="" class="logo" />
+    <img
+      :src="logo"
+      alt=""
+      class="logo"
+      style="margin-top: 12px; margin-bottom: -10px"
+    />
 
     <nav class="toggle">
-      <div className="mask"></div>
+      <div class="mask"></div>
       <div>
-        <div class="navClose"></div>
+        <div class="navClosed"></div>
+        <ul class="nav-item">
+          <li>
+            <a v-for="(item, index) in small_list" :key="index" href="#">{{
+              item.name
+            }}</a>
+          </li>
+        </ul>
       </div>
     </nav>
 
     <div class="nav-right">
       <div class="member">
-        <a href="#">Login in |</a>
+        <a href="#">Login in </a>
         <a href="#">Register</a>
       </div>
-      <div className="tool-bar">
-        <a className="tool-search" href="#"
+      <div class="tool-bar">
+        <a class="tool-search" href="#"
           ><svg
             stroke="currentColor"
             fill="currentColor"
@@ -37,7 +49,7 @@
               d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
             ></path></svg
         ></a>
-        <a className="tool-cart" href="#" data-amount="2"
+        <a class="tool-cart" href="#" data-amount="2"
           ><svg
             stroke="currentColor"
             fill="currentColor"
@@ -58,10 +70,39 @@
 
 <script>
 export default {
+  mounted() {
+    this.logo =
+      this.windowScreen > 992
+        ? "./assets/ponti-wine-cellars-logo-1589532960.jpg.png"
+        : "./assets/ponti_wine_cellars-logo BLACK.png";
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  methods: {
+    onScroll() {
+      this.logo =
+        this.windowScreen > 992
+          ? "./assets/ponti-wine-cellars-logo-1589532960.jpg.png"
+          : "./assets/ponti-wine-logo-black.png";
+      this.windowTop = window.top.scrollY;
+      this.windowScreen = document.body.clientWidth;
+
+      if (window.screen.width > 992 && this.windowTop > 250) {
+        this.NavOnTop = false;
+      } else {
+        this.NavOnTop = true;
+      }
+    },
+  },
   components: {},
   data() {
     return {
-      logo: window.he,
+      windowScreen: document.body.clientWidth,
+      NavOnTop: true,
+      windowTop: 0,
+      logo: "./assets/ponti-wine-cellars-logo-1589532960.jpg.png",
       cart_number: 2,
       small_list: [
         { name: "SHOP" },
@@ -100,7 +141,7 @@ export default {
   width: 100%;
   height: 120px;
   color: white;
-  background-color: darkgray;
+  background-color: rgba(68, 68, 68, 0.95);
   opacity: 0.9;
   z-index: 9;
   &.minify {
@@ -212,14 +253,14 @@ export default {
 
 .nav-right {
   position: absolute;
-  top: 1.5rem;
+  top: 2rem;
   right: 2.5rem;
   display: flex;
   align-items: center;
   &.minify {
     top: 1.25rem;
   }
-  .login-bar {
+  .member {
     a {
       display: inline-block;
       text-decoration: none;
@@ -259,7 +300,7 @@ export default {
   @media only screen and (max-width: 992px) {
     top: 1rem;
     right: 1.5rem;
-    .login-bar {
+    .member {
       display: none;
     }
     .tool-bar a[data-amount]::before {
@@ -273,6 +314,7 @@ export default {
     }
   }
 }
+
 .nav-toggler {
   position: absolute;
   top: 0.85rem;
@@ -305,6 +347,14 @@ export default {
   @media only screen and (min-width: 992px) {
     display: none;
   }
+}
+
+.nav-item {
+  align-items: flex-end;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .line {
