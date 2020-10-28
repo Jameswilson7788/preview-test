@@ -1,24 +1,60 @@
 
 <template>
-  <nav  class="main">
-    <div class="nav-left">
+  <nav class="main" :class="{ minify: mode }">
+    <div class="nav-left" :class="{ minify: mode }">
       <span><b>TEL</b>(852) 2739 7678</span>
       <span><b>EMAIL</b>enquiries@pontiwinecellars.com</span>
     </div>
 
-    <div class="nav-toggler"></div>
+    <div v-show="isShowResizeMenu" class="nav-toggler" @click="this.toggleMenu">
+      <q-button>
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          class="sc-fzqNqU viOMQ"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+          ></path>
+          <q-menu
+            fit
+            max-height="600px"
+            :offset="[50, 26]"
+            anchor="bottom left"
+            self="top left"
+            transition-show="jump-down"
+            transition-hide="jump-up"
+          >
+            <q-list
+              style="width: 400px"
+              v-for="(item, index) in big_list"
+              :key="index"
+            >
+              <q-item clickable v-if="item.name != '-'">
+                <q-item-section>
+                  {{ item.name }}
+                </q-item-section>
+              </q-item>
+              <q-item v-else>
+                <q-item-section><Divider></Divider></q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </svg>
+      </q-button>
+    </div>
 
-    <img
-      :src="logo"
-      alt=""
-      class="logo"
-      style="margin-top: 12px; margin-bottom: -10px"
-    />
+    <img :src="logo" alt="" class="logo" style="" height="60" />
 
     <nav class="toggle">
-      <div class="mask"></div>
+      <div class="mask" @click="this.toggleMenu()"></div>
       <div>
-        <div class="navClosed"></div>
+        <div class="navClosed" @click="this.toggleMenu()"></div>
         <ul class="nav-item">
           <li>
             <a v-for="(item, index) in small_list" :key="index" href="#">{{
@@ -29,7 +65,7 @@
       </div>
     </nav>
 
-    <div class="nav-right">
+    <div class="nav-right" :class="{ minify: mode }">
       <div class="member">
         <a href="#">Login in </a>
         <a href="#">Register</a>
@@ -69,41 +105,55 @@
 </template>
 
 <script>
+import menu from "../../assets/list.svg";
+import Divider from "../Divider/Divider.vue";
+
 export default {
   mounted() {
     this.logo =
       this.windowScreen > 992
         ? "./assets/ponti-wine-cellars-logo-1589532960.jpg.png"
-        : "./assets/ponti_wine_cellars-logo BLACK.png";
+        : "./assets/ponti-wine-logo-black.png";
     window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onResize);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onResize);
   },
   methods: {
-    onScroll() {
+    toggleMenu() {
+      this.isShowMenu = !this.isShowMenu;
+    },
+    // setToggleMenu(trigger){
+    //   this.isShowResizeMenu = trigger;
+    // },
+    onResize() {
       this.logo =
-        this.windowScreen > 992
+        document.body.clientWidth > 992
           ? "./assets/ponti-wine-cellars-logo-1589532960.jpg.png"
           : "./assets/ponti-wine-logo-black.png";
-      this.windowTop = window.top.scrollY;
-      this.windowScreen = document.body.clientWidth;
-
-      if (window.screen.width > 992 && this.windowTop > 250) {
-        this.NavOnTop = false;
-      } else {
-        this.NavOnTop = true;
-      }
+      this.isShowResizeMenu = document.body.clientWidth > 992 ? false : true;
+    },
+    onScroll() {
+      this.mode =
+        window.top.scrollY > 30 && document.body.clientWidth > 992
+          ? true
+          : false;
     },
   },
-  components: {},
+  components: { Divider },
   data() {
     return {
-      windowScreen: document.body.clientWidth,
-      NavOnTop: true,
-      windowTop: 0,
+      isShowResizeMenu: true,
+      isShowMenu: false,
+      menu,
+      mode: false,
+      // windowScreen: document.body.clientWidth,
+      // NavOnTop: true,
+      // windowTop: 0,
       logo: "./assets/ponti-wine-cellars-logo-1589532960.jpg.png",
-      cart_number: 2,
+      // cart_number: 2,
       small_list: [
         { name: "SHOP" },
         { name: "PROMOTIONS" },
@@ -139,16 +189,17 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 120px;
+  height: 130px;
   color: white;
   background-color: rgba(68, 68, 68, 0.95);
   opacity: 0.9;
   z-index: 9;
+
   &.minify {
     height: 80px;
     > img {
       position: absolute;
-      top: 1.2rem;
+      top: 1.3rem;
       left: 2.5rem;
       height: 50px;
     }
@@ -230,6 +281,12 @@ export default {
       }
     }
   }
+}
+
+.nav-toggler svg {
+  position: absolute;
+  top: 27%;
+  left: 25%;
 }
 
 .nav-left {
