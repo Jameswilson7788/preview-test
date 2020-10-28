@@ -7,7 +7,7 @@
         <button @click="showNext">&gt;</button>
       </div>
       <VueSlickCarousel ref="carousel" v-bind="settings">
-        <div v-for="(item, index) in items" :key="index">
+        <div class="no-outline" v-for="(item, index) in items" :key="index">
           <Wine :item="item"></Wine>
         </div>
       </VueSlickCarousel>
@@ -84,6 +84,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.no-outline:focus {
+  outline: none;
+}
 main {
   padding: 2rem 1rem;
   width: 100%;
@@ -94,7 +97,6 @@ main {
     font-weight: normal;
   }
   .arrow-field {
-    
     width: 98%;
     display: flex;
     justify-content: flex-end;

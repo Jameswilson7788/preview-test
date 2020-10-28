@@ -77,6 +77,9 @@ export default {
     height: 650px;
   }
 }
+.wine:active {
+  border:0;
+}
 
 .product {
   display: flex;
