@@ -111,9 +111,12 @@ import Divider from "../Divider/Divider.vue";
 export default {
   mounted() {
     this.logo =
-      this.windowScreen > 992
+      document.body.clientWidth > 992
         ? "./assets/ponti-wine-cellars-logo-1589532960.jpg.png"
         : "./assets/ponti-wine-logo-black.png";
+    this.isShowResizeMenu = document.body.clientWidth > 992 ? false : true;
+    this.mode =
+      window.top.scrollY > 30 && document.body.clientWidth > 992 ? true : false;
     window.addEventListener("scroll", this.onScroll);
     window.addEventListener("resize", this.onResize);
   },
@@ -125,9 +128,6 @@ export default {
     toggleMenu() {
       this.isShowMenu = !this.isShowMenu;
     },
-    // setToggleMenu(trigger){
-    //   this.isShowResizeMenu = trigger;
-    // },
     onResize() {
       this.logo =
         document.body.clientWidth > 992
